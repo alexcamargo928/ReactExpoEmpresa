@@ -5,10 +5,13 @@ Año: 2024
 */
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet,Image ,ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 const Photo= require('../assets/Logo.png');
 
-const Dashboard = () => {
+export const Dashboard = () => {
+    const navigation = useNavigation();
     return (
+        
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.headerContenedor}>
@@ -16,6 +19,18 @@ const Dashboard = () => {
                     <Text style={styles.headerTitulo}>EmpleoIsra</Text>
                 </View>
             </View>
+
+            <View style={styles.nav}>
+                <View style={styles.navC}>
+                    <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate("Ofertas")} >
+                        <Text style={styles.navText}>Ofertas de Trabajo</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate("Perfil")}>
+                        <Text style={styles.navText}>Perfil</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
             <View style={styles.contenedorA}>
                 <Text style={styles.titulaA}>Bienvenido a EmpleoIsra</Text>
                 <Text style={styles.subtituloA}>Es un software que creado por el sena ayuda a buscar tranajo a atraves de la diferentes ofertas laborales</Text>
@@ -140,6 +155,37 @@ const styles = StyleSheet.create({
         objectFit:'fill',
         
     },
+
+    nav:{
+        marginBottom: 16,
+        backgroundColor: '#1e8449',
+    },
+
+    navC:{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        marginBottom: 10,
+        gap: '30%'
+    },
+
+    navButton:{
+        backgroundColor: '#145a32',
+        width: "15%",
+        height: "70%",
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding :'1%',
+        borderRadius: 4
+    },
+
+    navText:{
+        color: '#FFFFFF',
+        fontSize: 10
+    },
+
     contenedorA: {
         alignItems: 'center',
         marginBottom: 16,
