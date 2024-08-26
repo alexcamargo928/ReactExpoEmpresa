@@ -3,12 +3,13 @@ Desarrollado por: Israel Steven Camargo Menjura
 Institución: SENA
 Año: 2024
 */
-import { Text, View, StyleSheet,TouchableOpacity,TextInput} from 'react-native'
+import { Text, View, StyleSheet,ScrollView,TouchableOpacity,TextInput} from 'react-native'
 
 
 export const Ofertas = () => {
+    
     return (
-        <View style={styles.Container}>
+        <ScrollView contentContainerStyle={styles.Container}>
 
             <View style = {styles.contenedorT}>
                 <Text style={styles.Titulo}>Ofertas de Trabajo</Text>
@@ -97,24 +98,22 @@ export const Ofertas = () => {
                 </View>
             </View>
 
-        </View>
+        </ScrollView>
 
     );
 };
 
 const styles = StyleSheet.create({
     Container:{
-        width: "100%",
-        height: "100%",
+        flexGrow: 1, 
         backgroundColor: "#bbebbb",
         alignItems: 'center',
-        justifyContent: 'center'
+        padding: 18,
     },
     contenedorT:{
-        marginTop:'15%',
-        marginBottom:'5%',
+        marginTop: 20, 
+        marginBottom: 20, 
         alignItems: 'center',
-        gap: 12,
     },
     Titulo:{
         marginTop:'15%',
@@ -127,7 +126,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor:'lightgray',
         borderColor: '#D0D0D0',
-        paddingHorizontal: '30%'
+        textAlign:"left",
+        width: "80%", 
     },
 
     Ofert:{
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         borderColor: '#D0D0D0',
         padding: 10,
         width: "100%",
-        gap: 12,
+        marginBottom: 12,
     },
 
     tituloOfert: {

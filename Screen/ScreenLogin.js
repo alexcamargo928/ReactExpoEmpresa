@@ -4,9 +4,10 @@ Desarrollado por: Israel Steven Camargo Menjura
 Institución: SENA
 Año: 2024
 */
-import { Text, View,StyleSheet, Alert,TextInput,TouchableOpacity } from 'react-native'
+import { Text, View,StyleSheet, Alert,TextInput,TouchableOpacity } from 'react-native';
 // Importamos el hook useState de React para manejar el estado
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -15,6 +16,7 @@ export const Login = () => {
 
   const [email, setEmail] = useState('');// Variable para almacenar el correo electrónico
   const [password, setPassword] = useState('');// Variable para almacenar la contraseña
+  const navigation = useNavigation();
 
   const loginSuccessful = () => {//Se crea la funcion con el nombre 'loginSuccessful' que se ejecutar gracias al onpress que hay en el boton
     if (email && password) {
@@ -23,6 +25,7 @@ export const Login = () => {
       Alert.alert('¡GOOD!', '¡Has Iniciado Sesion!');
       setEmail('');//Limpiara el cambo de Email
       setPassword('');//Limpiara el cambo de Contraseña
+      navigation.navigate("Cerrar"); //navegación a home
     }else{
       // Sino, entonces todos los campos están incompletos
       Alert.alert('Error', 'Campos incompletos');//Mensaje de error
@@ -55,12 +58,12 @@ export const Login = () => {
           secureTextEntry//Oculta los caracteres y los convierte en puntos
         />
 
-        <TouchableOpacity style={styles.boton} onPress={loginSuccessful}>
+        <TouchableOpacity style={styles.boton} onPress={loginSuccessful} >
           <Text style={styles.textb}>Iniciar sesión</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text style={styles.olvidar}>Olvidaste tu Contraseña?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Registro")} >
+          <Text style={styles.olvidar}>Crear Cuenta </Text>
         </TouchableOpacity>
 
       </View>

@@ -3,11 +3,14 @@ Desarrollado por: Israel Steven Camargo Menjura
 Institución: SENA
 Año: 2024
 */
-import { Text, View, StyleSheet,Alert, TextInput, TouchableOpacity } from 'react-native'
 // Importamos el hook useState de React para manejar el estado
 import React, { useState } from 'react'
+import { Text, View, StyleSheet,Alert, TextInput, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 export const Register = () => {
+
+    const navigation = useNavigation();
 
     // Se utiliza el hook useState para crear variables de estado
     // Cada variable se inicializa con un valor vacío ('')
@@ -95,7 +98,7 @@ export const Register = () => {
                         <Text style={styles.textb}>Registrar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Inicio de Sesion")}>
                         <Text style={styles.olvidar}>¿Ya tienes cuenta? Inicia sesión</Text>
                     </TouchableOpacity>
 
